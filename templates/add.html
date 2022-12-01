@@ -1,0 +1,71 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+<div class="container pt-5">
+    <a href="{% url 'home' %}" class="btn btn-primary">Home page</a>
+    <div class="col-lg-5 pt-2 mx-auto">
+
+        <form action="{% url 'add' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="" class="form-label">Date</label>
+              <input type="date"
+                class="form-control" name="date" id="" aria-describedby="helpId" placeholder="Date" required>
+              <small id="helpId" class="form-text text-muted"></small>
+            </div>
+
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Trade code</label>
+                    <input type="text" name="trade_code" id="" class="form-control" placeholder="Trade Code" required>
+                       <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">High</label>
+                        <input type="text" name="high" id="" class="form-control" placeholder="High" required>
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Low</label>
+                        <input type="text" name="low" id="" class="form-control" placeholder="Low" required>
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                </div>
+            </div>
+     
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">Open</label>
+                    <input type="text" name="open" id="" class="form-control" placeholder="Open" required>
+                    <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">Close</label>
+                    <input type="text" name="close" id="" class="form-control" placeholder="Close" required>
+                    <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+        </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Volume</label>
+                    <input type="text" name="volume" id="" class="form-control" placeholder="Volume" required>
+                       <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add data</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

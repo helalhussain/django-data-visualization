@@ -1,0 +1,71 @@
+{% extends 'layouts.html' %}
+
+{% block content %}
+<div class="container pt-5">
+    <a href="{% url 'home' %}" class="btn btn-primary">Home page</a>
+    <div class="col-lg-5 pt-2 mx-auto">
+
+        <form action="/edited/{{edit.id}}" method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+              <label for="" class="form-label">Date</label>
+              <input type="date"
+                class="form-control" name="date" value="{{edit.date}}"" aria-describedby="helpId" placeholder="Date" required>
+              <small id="helpId" class="form-text text-muted"></small>
+            </div>
+
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Trade code</label>
+                    <input type="text" name="trade_code" value="{{edit.trade_code}}" class="form-control" placeholder="Trade Code" required>
+                       <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">High</label>
+                        <input type="text" name="high" value="{{edit.high}}" class="form-control" placeholder="High" required>
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Low</label>
+                        <input type="text" name="low" value="{{edit.low}}" class="form-control" placeholder="Low" required>
+                        <small id="helpId" class="text-muted"></small>
+                    </div>
+                </div>
+            </div>
+     
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">Open</label>
+                    <input type="text" name="open" value="{{edit.open}}" class="form-control" placeholder="Open" required>
+                    <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <label for="" class="form-label">Close</label>
+                    <input type="text" name="close" value="{{edit.close}}" class="form-control" placeholder="Close" required>
+                    <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+        </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="" class="form-label">Volume</label>
+                    <input type="text" name="volume" value="{{edit.volume}}" class="form-control" placeholder="Volume" required>
+                       <small id="helpId" class="text-muted"></small>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit data</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

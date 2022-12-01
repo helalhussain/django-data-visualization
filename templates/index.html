@@ -1,0 +1,55 @@
+{% extends 'layouts.html' %}
+
+
+{% block content %}
+   <div class="container pt-5">
+    <a href="{% url 'add' %}" class="btn btn-primary">Add data</a><br/><br/>
+    <form>
+        <div class="input-group">
+            <select class="form-control" name="q">
+              <option value="">Choose trade code</option>
+              {% for choose in allData %}
+              <option value="{{choose.trade_code}}">{{choose.trade_code}}</option>
+              {% endfor %}
+            </select>
+              <span class="input-group-text" id="basic-addon1">
+              <button class="btn btn-success" style=" " >Choose</button>
+              </span>
+            
+          </div>
+    </form>
+        <div class="table-responsive pt-2">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">date</th>
+                        <th scope="col">trade_code</th>
+                        <th scope="col">high</th>
+                        <th scope="col">low</th>
+                        <th scope="col">open</th>
+                        <th scope="col">close</th>
+                        <th scope="col">volume</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {% for datas in data %}
+                   <tr class="">
+                        <td scope="row"> {{datas.date}} </td>
+                        <td> {{datas.trade_code}} </td>
+                        <td> {{datas.high}} </td>
+                        <td> {{datas.low}} </td>
+                        <td> {{datas.open}} </td>
+                        <td> {{datas.close}} </td>
+                        <td> {{datas.volume}} </td>
+                        <td> <a href="/edit/{{datas.id}}" class="btn btn-success">Edit</a> </td>
+                        <td> <a href="/delete/{{datas.id}}" class="btn btn-danger">Delete</a> </td>
+                    </tr>
+                   {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+   </div>
+{% endblock %}
